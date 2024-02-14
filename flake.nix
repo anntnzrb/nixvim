@@ -1,5 +1,5 @@
 {
-  description = "annt's [n]vi[m] Configuration.";
+  description = "annt's nixified Neovim Configuration.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -45,7 +45,10 @@
 
         treefmt.config = {
           projectRootFile = "flake.nix";
-          programs.nixpkgs-fmt.enable = true;
+          programs = {
+            nixpkgs-fmt.enable = true;
+            prettier.enable = true;
+          };
         };
       };
     };

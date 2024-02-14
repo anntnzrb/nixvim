@@ -10,6 +10,8 @@
       filetypes = {
         "." = true;
 
+        markdown = true;
+
         help = false;
         gitcommit = false;
         gitrebase = false;
