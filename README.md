@@ -6,10 +6,9 @@ The following project is a my personally curated configuration for
 This configuration is written using Nix. This allows me to easily use this
 customized configuration on any machine with Nix installed.
 There is no package manager step, everything is handled behind the scenes by
-[Nix](https://nixos.org).
-
-- [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins)
-- [nixvim](https://github.com/nix-community/nixvim).
+[Nix](https://nixos.org) +
+[nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins) +
+[nixvim](https://github.com/nix-community/nixvim).
 
 ## Disclaimer
 
