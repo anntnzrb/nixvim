@@ -39,7 +39,7 @@
             module = import ./modules;
           };
 
-          nvim = config.packages.default;
+          neovim = config.packages.default;
         };
 
 
