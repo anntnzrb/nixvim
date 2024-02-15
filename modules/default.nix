@@ -12,6 +12,7 @@
     "which-key"
 
     "langs/nix"
+    "langs/typst"
   ];
 
   config = {
