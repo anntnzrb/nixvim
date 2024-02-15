@@ -1,17 +1,17 @@
 {
-  imports = [
-    ../modules/ai/copilot
-    ../modules/bufferline
-    ../modules/clipboard
-    ../modules/colorscheme
-    ../modules/completion
-    ../modules/git
-    ../modules/lsp
-    ../modules/surround
-    ../modules/tree-sitter
-    ../modules/which-key
+  imports = map (mod: ../modules/${mod}) [
+    "ai/copilot"
+    "bufferline"
+    "clipboard"
+    "colorscheme"
+    "completion"
+    "git"
+    "lsp"
+    "surround"
+    "tree-sitter"
+    "which-key"
 
-    ../modules/langs/nix
+    "langs/nix"
   ];
 
   config = {
@@ -37,34 +37,22 @@
       relativenumber = true;
     };
 
-    keymaps = [
-      {
-        mode = "n";
-        key = "Q";
-        action = "gqq{";
-        options = {
-          silent = true;
-          desc = "Format paragraph";
+    keymaps =
+      let
+        mkRemap = mode: key: action: desc: {
+          inherit mode key action;
+          options = {
+            silent = true;
+            inherit desc;
+          };
         };
-      }
-      {
-        mode = "n";
-        key = "<C-u>";
-        action = "<C-u>zz";
-        options = {
-          silent = true;
-          desc = "Scroll half page up. Center";
-        };
-      }
-      {
-        mode = "n";
-        key = "<C-d>";
-        action = "<C-d>zz";
-        options = {
-          silent = true;
-          desc = "Scroll half page down. Center";
-        };
-      }
-    ];
+      in
+      [
+        (mkRemap "n" "<ESC><ESC>" ":nohlsearch<CR>" "Clear highlights")
+        (mkRemap "n" "<C-x>h" "ggVG" "Select whole buffer")
+        (mkRemap "n" "Q" "gqq" "Format paragraph")
+        (mkRemap "n" "<C-u>" "<C-u>zz" "Scroll half page up & center")
+        (mkRemap "n" "<C-d>" "<C-d>zz" "Scroll half page down & center")
+      ];
   };
 }
