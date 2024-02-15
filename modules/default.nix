@@ -5,6 +5,7 @@
     ../modules/clipboard
     ../modules/colorscheme
     ../modules/completion
+    ../modules/git
     ../modules/lsp
     ../modules/surround
     ../modules/tree-sitter
@@ -35,5 +36,35 @@
       number = true;
       relativenumber = true;
     };
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "Q";
+        action = "gqq{";
+        options = {
+          silent = true;
+          desc = "Format paragraph";
+        };
+      }
+      {
+        mode = "n";
+        key = "<C-u>";
+        action = "<C-u>zz";
+        options = {
+          silent = true;
+          desc = "Scroll half page up. Center";
+        };
+      }
+      {
+        mode = "n";
+        key = "<C-d>";
+        action = "<C-d>zz";
+        options = {
+          silent = true;
+          desc = "Scroll half page down. Center";
+        };
+      }
+    ];
   };
 }
