@@ -33,7 +33,9 @@ alias e='nix run github:anntnzrb/nixvim --'
 e ~/.bashrc
 ```
 
-## Install via Nix Profiles
+## Install
+
+### Via Nix Profiles
 
 ```sh
 nix profile install github:anntnzrb/nixvim
