@@ -8,6 +8,7 @@
     "git"
     "lsp"
     "surround"
+    "telescope"
     "tree-sitter"
     "which-key"
 
