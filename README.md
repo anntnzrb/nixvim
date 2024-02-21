@@ -39,6 +39,30 @@ e ~/.bashrc
 nix profile install github:anntnzrb/nixvim
 ```
 
+## Features
+
+The following describes /some/ features of this configuration. This list is not
+exhaustive.
+
+**Packages/Plugins/Extensions (Package Manager)**:
+
+- There is no package manager. All plugins are handled by
+  [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins)
+
+**Languages**:
+
+- **Shell (and shell-like)**
+  - LSP, `shellcheck` and `shfmt` pre-configured
+
+**Treesitter**:
+
+- Enabled for most, if not all filetypes. No compilation required.
+
+## Goals
+
+- Avoid in-line raw _lua/vimscript_ code as much as possible.
+  - Favor nix. `nixvim` should handle most of the configuration.
+
 ## COPYING
 
 Refer to the [COPYING](./COPYING) file for licensing information.
