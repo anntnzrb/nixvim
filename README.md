@@ -17,27 +17,31 @@ exhaustive. I am still using _GNU Emacs_ as my primary editor.
 
 ## Features
 
-The following describes /some/ features of this configuration. This list is not
+The following describes _some_ features of this configuration. This list is not
 exhaustive.
 
 **Packages/Plugins/Extensions (Package Manager)**:
 
-- There is no package manager. All plugins are handled by
+- There is no package manager; all plugins are handled by
   [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins)
 
 **Languages**:
 
-- **Shell (and shell-like)**
-  - LSP, `shellcheck` and `shfmt` pre-configured
+- **[`shell`](./modules/langs/sh/default.nix)**
+  - LSP, `shellcheck`, and `shfmt` pre-configured[^1]
 
 **Treesitter**:
 
-- Enabled for most, if not all filetypes. No compilation required.
+- Enabled for most, if not all filetypes; no compilation required
+
+[^1]:
+    Most of these tools are disabled by default for other languages in order to
+    avoid polluting the configuration. However shell-scripts are special case.
 
 ## Goals
 
-- Avoid in-line raw _lua/vimscript_ code as much as possible.
-  - Favor nix. `nixvim` should handle most of the configuration.
+- Avoid in-line raw _lua/vimscript_ code as much as possible
+  - Favor _nixification_; `nixvim` should handle the configuration
 
 ## Get It
 
@@ -48,7 +52,7 @@ affect your own settings.
 nix run github:anntnzrb/nixvim
 ```
 
-You can alias this and try it out.
+You can also alias the above command for convenience.
 
 ```sh
 alias e='nix run github:anntnzrb/nixvim --'
