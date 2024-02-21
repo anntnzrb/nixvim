@@ -12,10 +12,10 @@ There is no package manager step, everything is handled behind the scenes by
 
 ## Disclaimer
 
-As of this writting, it is not intented that this configuration will be an
-exhaustive one. I am still using _GNU Emacs_ as my primary editor.
+As of this writting, there is no intention of making these configurations
+exhaustive. I am still using _GNU Emacs_ as my primary editor.
 
-## Try It
+## Get It
 
 You may try this Neovim configuration without any installation. This does not
 affect your own settings.
@@ -33,9 +33,7 @@ alias e='nix run github:anntnzrb/nixvim --'
 e ~/.bashrc
 ```
 
-## Install
-
-### Via Nix Profiles
+### Installing via Nix Profiles
 
 ```sh
 nix profile install github:anntnzrb/nixvim
