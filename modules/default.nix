@@ -56,6 +56,11 @@
         (mkRemap "n" "Q" "gqq" "Format paragraph")
         (mkRemap "n" "<C-u>" "<C-u>zz" "Scroll half page up & center")
         (mkRemap "n" "<C-d>" "<C-d>zz" "Scroll half page down & center")
+
+        # buffers
+        (mkRemap "n" "<leader>bk" ":bdelete<CR>" "Kill current buffer")
+        (mkRemap "n" "<leader>b[" ":bnext<CR>" "Switch to next buffer")
+        (mkRemap "n" "<leader>b]" ":bprev<CR>" "Switch to previous buffer")
       ];
   };
 }
