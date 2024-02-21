@@ -4,7 +4,7 @@
 
     plugins.lsp.servers.nil_ls = {
       enable = true;
-      installLanguageServer = false;
+      package = null; # do not install server
 
       settings.formatting.command = [ "nixpkgs-fmt" ];
     };

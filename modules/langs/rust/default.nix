@@ -3,8 +3,7 @@
     plugins.rustaceanvim = {
       enable = true;
 
-      # do not install lsp
-      rustAnalyzerPackage = null;
+      rustAnalyzerPackage = null; # do not install server
     };
   };
 }
