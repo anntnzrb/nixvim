@@ -14,6 +14,7 @@
 
     "langs/nix"
     "langs/rust"
+    "langs/sh"
     "langs/typst"
   ];
 
