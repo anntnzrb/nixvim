@@ -15,30 +15,6 @@ There is no package manager step, everything is handled behind the scenes by
 As of this writting, there is no intention of making these configurations
 exhaustive. I am still using _GNU Emacs_ as my primary editor.
 
-## Get It
-
-You may try this Neovim configuration without any installation. This does not
-affect your own settings.
-
-```sh
-nix run github:anntnzrb/nixvim
-```
-
-You can alias this and try it out.
-
-```sh
-alias e='nix run github:anntnzrb/nixvim --'
-
-# open any file
-e ~/.bashrc
-```
-
-### Installing via Nix Profiles
-
-```sh
-nix profile install github:anntnzrb/nixvim
-```
-
 ## Features
 
 The following describes /some/ features of this configuration. This list is not
@@ -62,6 +38,30 @@ exhaustive.
 
 - Avoid in-line raw _lua/vimscript_ code as much as possible.
   - Favor nix. `nixvim` should handle most of the configuration.
+
+## Get It
+
+You may try this Neovim configuration without any installation. This does not
+affect your own settings.
+
+```sh
+nix run github:anntnzrb/nixvim
+```
+
+You can alias this and try it out.
+
+```sh
+alias e='nix run github:anntnzrb/nixvim --'
+
+# open any file
+e ~/.bashrc
+```
+
+### Installing via Nix Profiles
+
+```sh
+nix profile install github:anntnzrb/nixvim
+```
 
 ## COPYING
 
