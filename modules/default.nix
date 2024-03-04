@@ -1,7 +1,6 @@
 {
   imports = map (mod: ../modules/${mod}) [
     "ai/copilot"
-    "bufferline"
     "clipboard"
     "colorscheme"
     "completion"
