@@ -1,7 +1,3 @@
-# The following module is a bit of an edge case.
-# As shell scripting is present everywhere, it does not hurt to aid
-# with some tools, such as LSP and a formatter.
-
 { config
 , pkgs
 , ...
