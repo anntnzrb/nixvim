@@ -18,6 +18,8 @@
   ];
 
   config = {
+    withNodeJs = false;
+
     wrapRc = true;
     type = "lua";
 
@@ -26,7 +28,7 @@
       maplocalleader = " ";
     };
 
-    options = {
+    opts = {
       autoindent = true;
       shiftwidth = 4;
       tabstop = 4;

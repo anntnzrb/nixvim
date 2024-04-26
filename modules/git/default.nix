@@ -6,8 +6,10 @@
       gitsigns = {
         enable = true;
 
-        updateDebounce = 500;
-        currentLineBlame = false;
+        settings = {
+          update_debounce = 500;
+          current_line_blame = false;
+        };
       };
     };
 

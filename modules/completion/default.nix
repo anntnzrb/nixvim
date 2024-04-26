@@ -1,57 +1,58 @@
 {
-  config = {
-    plugins = {
-      nvim-cmp = {
+  plugins = {
+    luasnip.enable = true;
+
+    lspkind = {
+      enable = true;
+
+      cmp = {
         enable = true;
+        # order here DOES NOT matter
+        menu = {
+          nvim_lsp = "[LSP]";
+          nvim_lua = "[NVIM]";
+          path = "[Path]";
+          luasnip = "[Snip]";
+          buffer = "[Buf]";
+          copilot = "[GH]";
+        };
+      };
+    };
 
-        snippet.expand = "luasnip";
-        mappingPresets = [ "insert" ];
-        preselect = "None";
+    cmp = {
+      enable = true;
 
+      settings = {
+        snippet = {
+          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+          completion.keyword_length = 3;
+        };
+
+        mapping = {
+          "<C-l>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+
+          # docs
+          "<C-n>" = "cmp.mapping.scroll_docs(4)";
+          "<C-p>" = "cmp.mapping.scroll_docs(-4)";
+
+          # cycling
+          "<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<C-k>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+        };
+
+        # order matters
         sources = [
-          { name = "copilot"; groupIndex = 1; priority = 4; }
-          { name = "nvim_lsp"; groupIndex = 1; priority = 3; }
-          { name = "path"; groupIndex = 1; }
-          { name = "buffer"; groupIndex = 2; priority = 2; }
+          { name = "copilot"; }
+          { name = "path"; }
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
           {
-            name = "luasnip";
-            option.show_autosnippets = true;
-            groupIndex = 1;
-            priority = 5;
+            name = "buffer";
+            # suggest from other buffers as well
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
         ];
-
-        mapping =
-          let
-            prevNextCandidate = candidate: {
-              modes = [ "i" "s" ];
-              action = ''
-                function(fallback)
-                  if cmp.visible() then
-                    cmp.select_${candidate}_item()
-                  elseif require("luasnip").expand_or_jumpable() then
-                    require("luasnip").expand_or_jump()
-                  else
-                    fallback()
-                  end
-                end
-              '';
-            };
-          in
-          {
-            "<C-l>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
-
-            # docs
-            "<C-n>" = "cmp.mapping.scroll_docs(4)";
-            "<C-p>" = "cmp.mapping.scroll_docs(-4)";
-
-            "<C-j>" = prevNextCandidate "next";
-            "<C-k>" = prevNextCandidate "prev";
-          };
       };
-
-      luasnip.enable = true;
     };
   };
 }
-

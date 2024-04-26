@@ -2,10 +2,12 @@
   config = {
     colorschemes.rose-pine = {
       enable = true;
-      style = "moon";
 
-      boldVerticalSplit = true;
-      dimInactive = true;
+      settings = {
+        variant = "moon";
+        dark_variant = "moon";
+        dim_inactive_windows = true;
+      };
     };
   };
 }

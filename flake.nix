@@ -1,22 +1,20 @@
 {
-  description = "annt's nixified Neovim Configuration.";
+  description = "annt's nixified neovim";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    nixvim.url = "github:nix-community/nixvim/main";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.flake-parts.follows = "flake-parts";
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # src tree formatter
+    treefmt-nix.url = "github:numtide/treefmt-nix/main";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # misc
+    flake-parts.url = "github:hercules-ci/flake-parts/main";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
   outputs = { nixvim, flake-parts, ... } @ inputs:
