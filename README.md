@@ -28,6 +28,7 @@ exhaustive.
 **Languages**:
 
 - **[`nix`](./modules/langs/nix/default.nix)**
+
   - LSP (`nil`), `nixpkgs-fmt` pre-configured[^1]
 
 - **[`shell`](./modules/langs/sh/default.nix)**
