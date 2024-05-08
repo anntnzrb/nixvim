@@ -1,6 +1,7 @@
 {
   imports = map (mod: ../modules/${mod}) [
     "ai/copilot"
+    "autopairs"
     "clipboard"
     "colorscheme"
     "completion"
@@ -58,6 +59,8 @@
         (mkRemap "n" "Q" "gqq" "Format paragraph")
         (mkRemap "n" "<C-u>" "<C-u>zz" "Scroll half page up & center")
         (mkRemap "n" "<C-d>" "<C-d>zz" "Scroll half page down & center")
+
+        (mkRemap "i" "<C-z><C-z>" "<C-o>zz" "Center cursor while in insert mode")
 
         # buffers
         (mkRemap "n" "<leader>bk" ":bdelete<CR>" "Kill current buffer")
