@@ -13,6 +13,7 @@
     "which-key"
 
     "langs/nix"
+    "langs/c"
     "langs/rust"
     "langs/sh"
     "langs/typst"
