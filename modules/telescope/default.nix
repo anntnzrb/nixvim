@@ -3,7 +3,6 @@
     plugins.telescope = {
       enable = true;
 
-      keymapsSilent = true;
       keymaps = {
         # ---------------------------------------------------------------------
         # files

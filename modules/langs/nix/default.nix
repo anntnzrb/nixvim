@@ -5,7 +5,7 @@
   config = {
     plugins.nix.enable = true;
 
-    plugins.lsp.servers.nil_ls = {
+    plugins.lsp.servers.nil-ls = {
       enable = config.plugins.lsp.enable;
       package = null;
 

@@ -8,6 +8,7 @@
 
       efmls-configs = {
         enable = true;
+        externallyManagedPackages = "all"; # `all` to install no packages
 
         setup =
           let
@@ -22,18 +23,21 @@
           };
       };
 
-      none-ls.sources = {
-        formatting.shfmt = {
-          enable = true;
-          withArgs = ''
-            { extra_args = { "--simplify", "--binary-next-line", "--indent", "4" } }
-          '';
+      none-ls.sources.formatting.shfmt = {
+        enable = true;
+        package = pkgs.shfmt;
+        settings = {
+          extra_args = [
+            "--simplify"
+            "--binary-next-line"
+            "--indent"
+            "4"
+          ];
         };
       };
     };
 
     extraPackages = with pkgs; [
-      shfmt
       shellcheck
     ];
   };
