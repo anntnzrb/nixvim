@@ -14,7 +14,7 @@
         };
       };
 
-      #treesitter-context.enable = true;
+      treesitter-context.enable = true;
     };
   };
 }
