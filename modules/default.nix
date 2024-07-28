@@ -12,8 +12,9 @@
     "tree-sitter"
     "which-key"
 
-    "langs/nix"
     "langs/c"
+    "langs/gleam"
+    "langs/nix"
     "langs/rust"
     "langs/sh"
     "langs/typst"
