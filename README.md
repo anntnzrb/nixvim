@@ -10,11 +10,6 @@ There is no package manager step, everything is handled behind the scenes by
 [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins) +
 [nixvim](https://github.com/nix-community/nixvim).
 
-## Disclaimer
-
-As of this writting, there is no intention of making these configurations
-exhaustive. I am still using _GNU Emacs_ as my primary editor.
-
 ## Features
 
 The following describes _some_ features of this configuration. This list is not
