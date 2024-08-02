@@ -4,17 +4,24 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixvim.url = "github:nix-community/nixvim/main";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.inputs.flake-parts.follows = "flake-parts";
+    nixvim = {
+      url = "github:nix-community/nixvim/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
 
     # src tree formatter
-    treefmt-nix.url = "github:numtide/treefmt-nix/main";
-    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # misc
-    flake-parts.url = "github:hercules-ci/flake-parts/main";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts/main";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixvim, flake-parts, ... } @ inputs:
