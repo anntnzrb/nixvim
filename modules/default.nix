@@ -16,6 +16,7 @@
     "langs/gleam"
     "langs/nix"
     "langs/rust"
+    "langs/scala"
     "langs/sh"
     "langs/typst"
   ] ++ [
