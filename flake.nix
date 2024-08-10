@@ -31,13 +31,6 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       perSystem = { config, pkgs, system, ... }: {
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            nil
-            nixpkgs-fmt
-          ];
-        };
-
         packages = {
           default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
