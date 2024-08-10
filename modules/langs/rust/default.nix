@@ -1,9 +1,15 @@
-{
+{ config
+, ...
+}: {
   config = {
-    plugins.rustaceanvim = {
-      enable = true;
-
-      rustAnalyzerPackage = null; # do not install server
+    plugins = {
+      lsp.servers.rust-analyzer = {
+        enable = config.plugins.lsp.enable;
+        package = null;
+        installCargo = false;
+        installRustc = false;
+      };
     };
   };
 }
+
