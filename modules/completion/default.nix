@@ -42,7 +42,7 @@
 
         # order matters
         sources = [
-          { name = "copilot"; }
+          #{ name = "copilot"; }
           { name = "path"; }
           { name = "nvim_lsp"; }
           { name = "luasnip"; }

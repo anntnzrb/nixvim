@@ -3,8 +3,14 @@
     plugins.copilot-lua = {
       enable = true;
 
-      # disabled in favor of nvim-cmp
-      suggestion.enabled = false;
+      suggestion = {
+        enabled = true;
+        autoTrigger = true;
+        keymap = {
+          acceptLine = "<S-Tab>";
+        };
+      };
+
       panel.enabled = false;
 
       filetypes = {
@@ -20,5 +26,16 @@
         cvs = false;
       };
     };
+
+    keymaps = [
+      {
+        action = ":Copilot toggle<CR>";
+        key = "<leader>\\\\";
+        options = {
+          silent = true;
+          desc = "Toggle Copilot";
+        };
+      }
+    ];
   };
 }
