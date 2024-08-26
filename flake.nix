@@ -3,12 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default/main";
 
     nixvim = {
       url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.treefmt-nix.follows = "treefmt-nix";
+
+      # optional inputs
+      inputs.nuschtosSearch.follows = "";
+      inputs.home-manager.follows = "";
+      inputs.nix-darwin.follows = "";
+      inputs.devshell.follows = "";
+      inputs.flake-compat.follows = "";
+      inputs.git-hooks.follows = "";
     };
 
     # src tree formatter
@@ -24,11 +33,11 @@
     };
   };
 
-  outputs = { nixvim, flake-parts, ... } @ inputs:
+  outputs = { nixvim, systems, flake-parts, ... } @ inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.treefmt-nix.flakeModule ];
 
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = import systems;
 
       perSystem = { config, pkgs, system, ... }: {
         packages = {
@@ -39,7 +48,6 @@
 
           neovim = config.packages.default;
         };
-
 
         treefmt.config = {
           projectRootFile = "flake.nix";
