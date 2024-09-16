@@ -1,3 +1,6 @@
+{ pkgs
+, ...
+}:
 {
   imports = map (mod: ../modules/${mod}) [
     "autopairs"
@@ -23,7 +26,10 @@
   ];
 
   config = {
+    enableMan = false;
+    package = pkgs.neovim-unwrapped;
     withNodeJs = false;
+    withRuby = false;
 
     wrapRc = true;
 
