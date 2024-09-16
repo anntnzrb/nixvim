@@ -1,6 +1,5 @@
 {
   imports = map (mod: ../modules/${mod}) [
-    "ai/copilot"
     "autopairs"
     "clipboard"
     "colorscheme"

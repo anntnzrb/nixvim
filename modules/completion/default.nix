@@ -14,7 +14,6 @@
           path = "[Path]";
           luasnip = "[Snip]";
           buffer = "[Buf]";
-          copilot = "[GH]";
         };
       };
     };
@@ -42,7 +41,6 @@
 
         # order matters
         sources = [
-          #{ name = "copilot"; }
           { name = "path"; }
           { name = "nvim_lsp"; }
           { name = "luasnip"; }
