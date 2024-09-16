@@ -8,7 +8,7 @@
         enable = true;
 
         settings = {
-          conceal_math = true; # REVIEW: perf
+          conceal_math = 1;
         };
       };
 

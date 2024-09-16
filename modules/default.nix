@@ -26,7 +26,6 @@
     withNodeJs = false;
 
     wrapRc = true;
-    type = "lua";
 
     globals = {
       mapleader = " ";
