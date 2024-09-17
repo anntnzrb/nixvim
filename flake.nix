@@ -21,24 +21,21 @@
     };
 
     # misc
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts/main";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts/main";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
-  outputs = { nixvim, systems, flake-parts, ... } @ inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import systems;
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = import inputs.systems;
 
-      perSystem = { config, pkgs, system, ... }: {
+      perSystem = { self', pkgs, system, ... }: {
         packages = {
-          default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+          default = self'.packages.neovim;
+          neovim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
             module = import ./modules;
           };
-
-          neovim = config.packages.default;
         };
       };
     };
