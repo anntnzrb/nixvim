@@ -31,22 +31,23 @@
 
       perSystem = { self', pkgs, system, ... }:
         let
-          nixvim = inputs.nixvim;
-          nixvimLib = nixvim.lib.${system};
-          nixvimPkgs = nixvim.legacyPackages.${system};
+          nixvim = {
+            lib = inputs.nixvim.lib.${system};
+            pkg = inputs.nixvim.legacyPackages.${system};
 
-          nixvimModule = {
-            inherit pkgs;
-            module = import ./modules;
+            module = {
+              inherit pkgs;
+              module = import ./modules;
+            };
           };
         in
         {
           packages = {
             default = self'.packages.neovim;
-            neovim = nixvimPkgs.makeNixvimWithModule nixvimModule;
+            neovim = nixvim.pkg.makeNixvimWithModule nixvim.module;
           };
 
-          checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          checks.default = nixvim.lib.check.mkTestDerivationFromNixvimModule nixvim.module;
 
           formatter = pkgs.nixpkgs-fmt;
         };
