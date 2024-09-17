@@ -4,8 +4,8 @@ on:
   workflow_dispatch: # manual triggering
   pull_request:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: [ '**.nix', '**.lock']
 
 jobs:
   ci:
