@@ -29,14 +29,25 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
-      perSystem = { self', pkgs, system, ... }: {
-        packages = {
-          default = self'.packages.neovim;
-          neovim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
+      perSystem = { self', pkgs, system, ... }:
+        let
+          nixvim = inputs.nixvim;
+          nixvimLib = nixvim.lib.${system};
+          nixvimPkgs = nixvim.legacyPackages.${system};
+
+          nixvimModule = {
             inherit pkgs;
             module = import ./modules;
           };
+        in
+        {
+          packages = {
+            default = self'.packages.neovim;
+            neovim = nixvimPkgs.makeNixvimWithModule nixvimModule;
+          };
+
+          checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+
         };
-      };
     };
 }
