@@ -9,21 +9,15 @@
       url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.treefmt-nix.follows = "treefmt-nix";
 
       # optional inputs
-      inputs.nuschtosSearch.follows = "";
-      inputs.home-manager.follows = "";
-      inputs.nix-darwin.follows = "";
       inputs.devshell.follows = "";
       inputs.flake-compat.follows = "";
       inputs.git-hooks.follows = "";
-    };
-
-    # src tree formatter
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "";
+      inputs.nix-darwin.follows = "";
+      inputs.nuschtosSearch.follows = "";
+      inputs.treefmt-nix.follows = "";
     };
 
     # misc
@@ -35,8 +29,6 @@
 
   outputs = { nixvim, systems, flake-parts, ... } @ inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ inputs.treefmt-nix.flakeModule ];
-
       systems = import systems;
 
       perSystem = { config, pkgs, system, ... }: {
@@ -47,14 +39,6 @@
           };
 
           neovim = config.packages.default;
-        };
-
-        treefmt.config = {
-          projectRootFile = "flake.nix";
-          programs = {
-            nixpkgs-fmt.enable = true;
-            prettier.enable = true;
-          };
         };
       };
     };
