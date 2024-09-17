@@ -4,25 +4,26 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default/main";
+    flake-parts.url = "github:hercules-ci/flake-parts/main";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 
     nixvim = {
       url = "github:nix-community/nixvim/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
 
-      # optional inputs
-      inputs.devshell.follows = "";
-      inputs.flake-compat.follows = "";
-      inputs.git-hooks.follows = "";
-      inputs.home-manager.follows = "";
-      inputs.nix-darwin.follows = "";
-      inputs.nuschtosSearch.follows = "";
-      inputs.treefmt-nix.follows = "";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+
+        # optional inputs
+        devshell.follows = "";
+        flake-compat.follows = "";
+        git-hooks.follows = "";
+        home-manager.follows = "";
+        nix-darwin.follows = "";
+        nuschtosSearch.follows = "";
+        treefmt-nix.follows = "";
+      };
     };
-
-    # misc
-    flake-parts.url = "github:hercules-ci/flake-parts/main";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
   outputs = inputs:
@@ -33,7 +34,7 @@
         let
           nixvim = {
             lib = inputs.nixvim.lib.${system};
-            pkg = inputs.nixvim.legacyPackages.${system};
+            pkgs = inputs.nixvim.legacyPackages.${system};
 
             module = {
               inherit pkgs;
@@ -44,7 +45,7 @@
         {
           packages = {
             default = self'.packages.neovim;
-            neovim = nixvim.pkg.makeNixvimWithModule nixvim.module;
+            neovim = nixvim.pkgs.makeNixvimWithModule nixvim.module;
           };
 
           checks.default = nixvim.lib.check.mkTestDerivationFromNixvimModule nixvim.module;
