@@ -48,6 +48,7 @@
 
           checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
 
+          formatter = pkgs.nixpkgs-fmt;
         };
     };
 }
