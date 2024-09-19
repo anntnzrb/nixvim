@@ -12,30 +12,9 @@ There is no package manager step, everything is handled behind the scenes by
 
 ## Features
 
-The following describes _some_ features of this configuration. This list is not
-exhaustive.
-
-**Plugins/Extensions (Package Manager)**:
-
-- There is no package manager involved. All plugins are handled by
-  [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins)
-
-**Languages**:
-
-- **[`nix`](./modules/langs/nix/default.nix)**
-
-  - LSP (`nil`), `nixpkgs-fmt` pre-configured[^1]
-
-- **[`shell`](./modules/langs/sh/default.nix)**
-  - LSP (`bashls`), `shellcheck`, `shfmt` pre-configured[^1]
-
 **Treesitter**:
 
 - Enabled for most, if not all filetypes; no compilation required
-
-[^1]:
-    Most language-specific tools are disabled by default in order to avoid
-    polluting the configuration. However there are a few special cases.
 
 ## Goals
 
