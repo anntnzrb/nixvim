@@ -9,14 +9,9 @@
 
     plugins.lsp.servers.nil-ls = {
       enable = config.plugins.lsp.enable;
-      package = null;
-
       settings.formatting.command = [ "nixfmt" ];
     };
 
-    extraPackages = with pkgs; [
-      nil
-      nixfmt-rfc-style
-    ];
+    extraPackages = [ pkgs.nixfmt-rfc-style ];
   };
 }
