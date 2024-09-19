@@ -11,12 +11,12 @@
       enable = config.plugins.lsp.enable;
       package = null;
 
-      settings.formatting.command = [ "nixpkgs-fmt" ];
+      settings.formatting.command = [ "nixfmt" ];
     };
 
     extraPackages = with pkgs; [
       nil
-      nixpkgs-fmt
+      nixfmt-rfc-style
     ];
   };
 }
