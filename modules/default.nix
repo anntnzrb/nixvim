@@ -1,29 +1,32 @@
-{ pkgs
-, ...
+{
+  pkgs,
+  ...
 }:
 {
-  imports = map (mod: ../modules/${mod}) [
-    "autopairs"
-    "clipboard"
-    "colorscheme"
-    "completion"
-    "git"
-    "lsp"
-    "surround"
-    "telescope"
-    "tree-sitter"
-    "which-key"
+  imports =
+    map (mod: ../modules/${mod}) [
+      "autopairs"
+      "clipboard"
+      "colorscheme"
+      "completion"
+      "git"
+      "lsp"
+      "surround"
+      "telescope"
+      "tree-sitter"
+      "which-key"
 
-    "langs/c"
-    "langs/gleam"
-    "langs/nix"
-    "langs/rust"
-    "langs/scala"
-    "langs/sh"
-    "langs/typst"
-  ] ++ [
-    ./keymappings.nix
-  ];
+      "langs/c"
+      "langs/gleam"
+      "langs/nix"
+      "langs/rust"
+      "langs/scala"
+      "langs/sh"
+      "langs/typst"
+    ]
+    ++ [
+      ./keymappings.nix
+    ];
 
   config = {
     enableMan = false;

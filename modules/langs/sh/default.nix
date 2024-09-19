@@ -1,7 +1,9 @@
-{ config
-, pkgs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  ...
+}:
+{
   config = {
     plugins = {
       lsp.servers.bashls.enable = config.plugins.lsp.enable;

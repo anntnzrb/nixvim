@@ -1,7 +1,9 @@
 # NOTE: check for a future lua-based solution
-{ config
-, ...
-}: {
+{
+  config,
+  ...
+}:
+{
   config = {
     plugins = {
       typst-vim = {

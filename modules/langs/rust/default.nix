@@ -1,6 +1,8 @@
-{ config
-, ...
-}: {
+{
+  config,
+  ...
+}:
+{
   config = {
     plugins = {
       lsp.servers.rust-analyzer = {
@@ -12,4 +14,3 @@
     };
   };
 }
-

@@ -1,6 +1,8 @@
-{ config
-, ...
-}: {
+{
+  config,
+  ...
+}:
+{
   config = {
     plugins = {
       lsp.servers.gleam = {

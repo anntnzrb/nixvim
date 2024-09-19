@@ -9,16 +9,22 @@
         # ---------------------------------------------------------------------
         "<leader>ff" = {
           action = "find_files";
-          options = { desc = "Search files"; };
+          options = {
+            desc = "Search files";
+          };
         };
         "<leader><space>" = {
           action = "git_files";
-          options = { desc = "[Git] Search files"; };
+          options = {
+            desc = "[Git] Search files";
+          };
         };
 
         "<leader>," = {
           action = "oldfiles";
-          options = { desc = "Search recent files"; };
+          options = {
+            desc = "Search recent files";
+          };
         };
 
         # ---------------------------------------------------------------------
@@ -26,23 +32,33 @@
         # ---------------------------------------------------------------------
         "<leader>sg" = {
           action = "live_grep";
-          options = { desc = "[Project] Grep Recursively"; };
+          options = {
+            desc = "[Project] Grep Recursively";
+          };
         };
         "<leader>ss" = {
           action = "current_buffer_fuzzy_find";
-          options = { desc = "[Buffer] Search"; };
+          options = {
+            desc = "[Buffer] Search";
+          };
         };
         "<leader>sr" = {
           action = "registers";
-          options = { desc = "List registers"; };
+          options = {
+            desc = "List registers";
+          };
         };
         "<leader>s:" = {
           action = "command_history";
-          options = { desc = "List recently executed commands"; };
+          options = {
+            desc = "List recently executed commands";
+          };
         };
         "<M-x>" = {
           action = "commands";
-          options = { desc = "List command"; };
+          options = {
+            desc = "List command";
+          };
         };
 
         # ---------------------------------------------------------------------
@@ -50,11 +66,15 @@
         # ---------------------------------------------------------------------
         "<leader>bb" = {
           action = "buffers";
-          options = { desc = "List buffers"; };
+          options = {
+            desc = "List buffers";
+          };
         };
         "<leader>b." = {
           action = "filetypes";
-          options = { desc = "Set buffer filetype"; };
+          options = {
+            desc = "Set buffer filetype";
+          };
         };
 
         # ---------------------------------------------------------------------
@@ -62,7 +82,9 @@
         # ---------------------------------------------------------------------
         "<leader>cx" = {
           action = "diagnostics";
-          options = { desc = "List diagnostics"; };
+          options = {
+            desc = "List diagnostics";
+          };
         };
 
         # ---------------------------------------------------------------------
@@ -70,15 +92,21 @@
         # ---------------------------------------------------------------------
         "<leader>hk" = {
           action = "keymaps";
-          options = { desc = "List keymaps"; };
+          options = {
+            desc = "List keymaps";
+          };
         };
         "<leader>ha" = {
           action = "autocommands";
-          options = { desc = "List autocommands"; };
+          options = {
+            desc = "List autocommands";
+          };
         };
         "<leader>hv" = {
           action = "vim_options";
-          options = { desc = "List Vim options"; };
+          options = {
+            desc = "List Vim options";
+          };
         };
       };
     };

@@ -26,11 +26,18 @@
     };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
-      perSystem = { self', pkgs, system, ... }:
+      perSystem =
+        {
+          self',
+          pkgs,
+          system,
+          ...
+        }:
         let
           nixvim = {
             lib = inputs.nixvim.lib.${system};
