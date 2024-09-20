@@ -57,7 +57,7 @@
 
           checks.default = nixvim.lib.check.mkTestDerivationFromNixvimModule nixvim.module;
 
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt;
         };
     };
 }
