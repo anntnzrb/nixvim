@@ -7,7 +7,7 @@
   config = {
     plugins.nix.enable = true;
 
-    plugins.lsp.servers.nil-ls = {
+    plugins.lsp.servers.nil_ls = {
       enable = config.plugins.lsp.enable;
       settings.formatting.command = [ "nixfmt" ];
     };

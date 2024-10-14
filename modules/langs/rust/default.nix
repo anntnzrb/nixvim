@@ -5,7 +5,7 @@
 {
   config = {
     plugins = {
-      lsp.servers.rust-analyzer = {
+      lsp.servers.rust_analyzer = {
         enable = config.plugins.lsp.enable;
         package = null;
         installCargo = false;

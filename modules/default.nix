@@ -11,6 +11,7 @@
       "completion"
       "git"
       "lsp"
+      "mini"
       "surround"
       "telescope"
       "tree-sitter"
