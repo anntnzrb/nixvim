@@ -20,6 +20,7 @@
       "langs/c"
       "langs/gleam"
       "langs/nix"
+      "langs/python"
       "langs/rust"
       "langs/scala"
       "langs/sh"
