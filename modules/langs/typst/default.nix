@@ -14,7 +14,7 @@
         };
       };
 
-      lsp.servers.typst_lsp.enable = config.plugins.lsp.enable;
+      lsp.servers.tinymist.enable = config.plugins.lsp.enable;
     };
   };
 }
