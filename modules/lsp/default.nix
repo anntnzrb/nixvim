@@ -61,7 +61,12 @@
 
       lspkind.cmp.menu.nvim_lsp = "[LSP]";
 
-      cmp.settings.sources = [ { name = "nvim_lsp"; } ];
+      cmp.settings.sources = [
+        {
+          name = "nvim_lsp";
+          priority = 2;
+        }
+      ];
 
       none-ls = {
         enable = true;

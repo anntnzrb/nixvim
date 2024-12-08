@@ -31,11 +31,15 @@
 
         # order matters
         sources = [
-          { name = "path"; }
+          {
+            name = "path";
+            priority = 10;
+          }
+          # suggest from other buffers as well
           {
             name = "buffer";
-            # suggest from other buffers as well
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+            priority = 1;
           }
         ];
       };
