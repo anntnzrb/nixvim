@@ -1,7 +1,5 @@
 {
   plugins = {
-    luasnip.enable = true;
-
     lspkind = {
       enable = true;
 
@@ -12,7 +10,6 @@
           nvim_lsp = "[LSP]";
           nvim_lua = "[NVIM]";
           path = "[Path]";
-          luasnip = "[Snip]";
           buffer = "[Buf]";
         };
       };
@@ -22,11 +19,6 @@
       enable = true;
 
       settings = {
-        snippet = {
-          expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-          completion.keyword_length = 3;
-        };
-
         mapping = {
           "<C-l>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
 
@@ -43,7 +35,6 @@
         sources = [
           { name = "path"; }
           { name = "nvim_lsp"; }
-          { name = "luasnip"; }
           {
             name = "buffer";
             # suggest from other buffers as well
