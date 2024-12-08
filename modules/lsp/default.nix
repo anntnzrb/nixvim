@@ -59,6 +59,10 @@
 
       lsp-format.enable = true;
 
+      lspkind.cmp.menu.nvim_lsp = "[LSP]";
+
+      cmp.settings.sources = [ { name = "nvim_lsp"; } ];
+
       none-ls = {
         enable = true;
         enableLspFormat = true;

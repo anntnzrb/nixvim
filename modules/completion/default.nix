@@ -5,9 +5,7 @@
 
       cmp = {
         enable = true;
-        # order here DOES NOT matter
         menu = {
-          nvim_lsp = "[LSP]";
           nvim_lua = "[NVIM]";
           path = "[Path]";
           buffer = "[Buf]";
@@ -34,7 +32,6 @@
         # order matters
         sources = [
           { name = "path"; }
-          { name = "nvim_lsp"; }
           {
             name = "buffer";
             # suggest from other buffers as well
