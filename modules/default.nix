@@ -18,6 +18,7 @@
       "which-key"
 
       "langs/c"
+      "langs/clojure"
       "langs/gleam"
       "langs/haskell"
       "langs/nix"
