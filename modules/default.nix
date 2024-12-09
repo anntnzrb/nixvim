@@ -19,6 +19,7 @@
 
       "langs/c"
       "langs/gleam"
+      "langs/haskell"
       "langs/nix"
       "langs/ocaml"
       "langs/python"
