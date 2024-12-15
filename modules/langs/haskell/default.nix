@@ -1,15 +1,7 @@
 {
-  config,
+  pkgs,
   ...
 }:
 {
-  config.plugins = {
-    lsp.servers.hls = {
-      enable = config.plugins.lsp.enable;
-      package = null;
-      installGhc = false;
-    };
-
-    haskell-scope-highlighting.enable = true;
-  };
+  config.extraPlugins = [ pkgs.vimPlugins.haskell-tools-nvim ];
 }
