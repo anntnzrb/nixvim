@@ -12,6 +12,7 @@
       "conform"
       "git"
       "lsp"
+      "lualine"
       "mini"
       "surround"
       "telescope"
