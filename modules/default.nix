@@ -9,6 +9,7 @@
       "clipboard"
       "colorscheme"
       "completion"
+      "conform"
       "git"
       "lsp"
       "mini"

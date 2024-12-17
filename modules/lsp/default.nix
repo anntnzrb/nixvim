@@ -49,10 +49,6 @@
               action = "code_action";
               desc = "List code actions";
             };
-            "<leader>cf" = {
-              action = "format";
-              desc = "Format source code";
-            };
           };
         };
       };
