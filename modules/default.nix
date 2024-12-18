@@ -15,6 +15,7 @@
       "lualine"
       "mini"
       "noice"
+      "snacks"
       "surround"
       "telescope"
       "tree-sitter"
