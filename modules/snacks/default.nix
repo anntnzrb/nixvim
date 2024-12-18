@@ -18,14 +18,7 @@
           scope.enabled = true;
           scroll.enabled = true;
           toggle.enabled = true;
-          statuscolumn = {
-            enabled = true;
-
-            folds = {
-              open = true;
-              git_hl = config.plugins.gitsigns.enable;
-            };
-          };
+          statuscolumn.enabled = true;
           words.enabled = true;
         };
       };
