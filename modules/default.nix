@@ -14,6 +14,7 @@
       "lsp"
       "lualine"
       "mini"
+      "noice"
       "surround"
       "telescope"
       "tree-sitter"
