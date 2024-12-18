@@ -13,8 +13,6 @@
           indent.enable = true;
         };
       };
-
-      treesitter-context.enable = true;
     };
   };
 }
