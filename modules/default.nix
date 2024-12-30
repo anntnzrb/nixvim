@@ -50,18 +50,24 @@
       maplocalleader = " ";
     };
 
-    opts = {
-      autoindent = true;
-      shiftwidth = 4;
-      tabstop = 4;
+    opts =
+      let
+        indentSize = 2;
+      in
+      {
+        autoindent = true;
+        expandtab = true;
+        shiftwidth = indentSize;
+        tabstop = indentSize;
+        softtabstop = indentSize;
 
-      cursorline = true;
-      linebreak = true;
-      mouse = "a";
-      wrap = true;
+        cursorline = true;
+        linebreak = true;
+        mouse = "a";
+        wrap = true;
 
-      number = true;
-      relativenumber = true;
-    };
+        number = true;
+        relativenumber = true;
+      };
   };
 }
