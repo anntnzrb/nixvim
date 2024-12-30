@@ -5,7 +5,7 @@
 {
   config.plugins = {
     lsp.servers.ocamllsp = {
-      enable = config.plugins.lsp.enable;
+      inherit (config.plugins.lsp) enable;
       package = null;
     };
 

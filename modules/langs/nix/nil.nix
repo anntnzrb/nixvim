@@ -6,7 +6,7 @@
 {
   config = {
     plugins.lsp.servers.nil_ls = {
-      enable = config.plugins.lsp.enable;
+      inherit (config.plugins.lsp) enable;
       settings.formatting.command = [ "nixfmt" ];
     };
 

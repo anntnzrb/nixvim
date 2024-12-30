@@ -6,7 +6,7 @@
   config = {
     plugins = {
       lsp.servers.gleam = {
-        enable = config.plugins.lsp.enable;
+        inherit (config.plugins.lsp) enable;
         package = null;
       };
 
