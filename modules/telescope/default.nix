@@ -20,13 +20,6 @@
           };
         };
 
-        "<leader>," = {
-          action = "oldfiles";
-          options = {
-            desc = "Search recent files";
-          };
-        };
-
         # ---------------------------------------------------------------------
         # searching
         # ---------------------------------------------------------------------
@@ -40,12 +33,6 @@
           action = "current_buffer_fuzzy_find";
           options = {
             desc = "[Buffer] Search";
-          };
-        };
-        "<leader>sr" = {
-          action = "registers";
-          options = {
-            desc = "List registers";
           };
         };
         "<leader>s:" = {
@@ -68,12 +55,6 @@
           action = "buffers";
           options = {
             desc = "List buffers";
-          };
-        };
-        "<leader>b." = {
-          action = "filetypes";
-          options = {
-            desc = "Set buffer filetype";
           };
         };
 
