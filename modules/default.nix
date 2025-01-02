@@ -23,6 +23,7 @@
 
       "langs/c"
       "langs/clojure"
+      "langs/fsharp"
       "langs/gleam"
       "langs/haskell"
       "langs/nix"
