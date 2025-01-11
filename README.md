@@ -10,6 +10,12 @@ There is no package manager step, everything is handled behind the scenes by
 [nixpkgs](https://search.nixos.org/packages?channel=unstable&type=packages&query=vimPlugins) +
 [nixvim](https://github.com/nix-community/nixvim).
 
+> [!NOTE]
+> I have discontinued using this package in favour of
+> [nvf](https://github.com/NotAShelf/nvf). I find it easier to configure and
+> maintain. It is _somewhat_ opinionated, yes, however not intrusive to bother
+> [my needs](https://github.com/anntnzrb/nvf).
+
 ## Features
 
 **Treesitter**:
