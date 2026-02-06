@@ -1,27 +1,33 @@
 {
-  description = "annt's nixified neovim";
+  description = "annt's Nixvim";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts/main";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    import-tree.url = "github:vic/import-tree/main";
     nixvim = {
       url = "github:nix-community/nixvim/main";
-
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-
-        # optional inputs
-        devshell.follows = "";
-        flake-compat.follows = "";
-        git-hooks.follows = "";
-        home-manager.follows = "";
-        nix-darwin.follows = "";
-        nuschtosSearch.follows = "";
-        treefmt-nix.follows = "";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts/main";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ef-themes = {
+      url = "github:oonamo/ef-themes.nvim";
+      flake = false;
+    };
+    vim-spell-es-spl = {
+      url = "file+https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl";
+      flake = false;
+    };
+    vim-spell-es-sug = {
+      url = "file+https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug";
+      flake = false;
     };
   };
 
@@ -29,34 +35,6 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = inputs.nixpkgs.lib.systems.flakeExposed;
-
-      perSystem =
-        {
-          self',
-          pkgs,
-          system,
-          ...
-        }:
-        let
-          nixvim = {
-            lib = inputs.nixvim.lib.${system};
-            pkgs = inputs.nixvim.legacyPackages.${system};
-
-            module = {
-              inherit pkgs;
-              module = import ./modules;
-            };
-          };
-        in
-        {
-          packages = {
-            default = self'.packages.neovim;
-            neovim = nixvim.pkgs.makeNixvimWithModule nixvim.module;
-          };
-
-          checks.default = nixvim.lib.check.mkTestDerivationFromNixvimModule nixvim.module;
-
-          formatter = pkgs.nixfmt-rfc-style;
-        };
+      imports = [ (inputs.import-tree ./parts) ];
     };
 }
