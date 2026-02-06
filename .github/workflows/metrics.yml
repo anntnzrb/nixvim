@@ -1,0 +1,73 @@
+name: Metrics
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  metrics:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: DeterminateSystems/nix-installer-action@v21
+
+      - name: Build and update closure metrics
+        run: |
+          set -euo pipefail
+
+          out="$(nix build .#nixvim --print-out-paths --no-link)"
+          closure_bytes="$(nix path-info --json -S "$out" | jq -r 'to_entries[0].value.closureSize')"
+          closure_mib="$(awk "BEGIN { printf \"%.1f\", ${closure_bytes}/1024/1024 }")"
+
+          if [ "$closure_bytes" -le $((700 * 1024 * 1024)) ]; then
+            color="brightgreen"
+          elif [ "$closure_bytes" -le $((1024 * 1024 * 1024)) ]; then
+            color="yellowgreen"
+          else
+            color="orange"
+          fi
+
+          cat > .github/metrics/closure-badge.json <<EOF
+          {
+            "schemaVersion": 1,
+            "label": "Closure Size",
+            "message": "${closure_mib} MiB",
+            "color": "${color}"
+          }
+          EOF
+
+          cat > /tmp/metrics-section.md <<EOF
+          ![Nixvim closure](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/anntnzrb/nixvim/main/.github/metrics/closure-badge.json)
+          Current Linux closure size: \`${closure_mib} MiB\` (${closure_bytes} bytes).
+          Measured from \`nix build .#nixvim --no-link\`.
+          EOF
+
+          awk '
+            /<!-- metrics:start -->/ { print; system("cat /tmp/metrics-section.md"); in_block=1; next }
+            /<!-- metrics:end -->/ { in_block=0; print; next }
+            !in_block { print }
+          ' README.md > README.md.tmp
+          mv README.md.tmp README.md
+
+      - name: Commit metrics updates
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet README.md .github/metrics/closure-badge.json; then
+            echo "No metrics changes to commit"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .github/metrics/closure-badge.json
+          git commit -m "chore(metrics): refresh closure report [skip ci]"
+          git push
