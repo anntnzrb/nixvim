@@ -2,7 +2,7 @@
 
 <!-- metrics:start -->
 ![Nixvim closure](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/anntnzrb/nixvim/main/.github/metrics/closure-badge.json)
-Current Linux closure size: `pending`.
+Current Linux closure size: `758.5 MiB` (795351632 bytes).
 Measured from `nix build .#nixvim --no-link`.
 <!-- metrics:end -->
 
