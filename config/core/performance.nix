@@ -1,4 +1,19 @@
-_: {
+{
+  pkgs,
+  ...
+}:
+{
+  dependencies = {
+    curl.package = pkgs.curlMinimal;
+    fish.package = pkgs.fishMinimal;
+    git.package = pkgs.gitMinimal;
+
+    nodejs.package = pkgs.nodejs-slim; # REVIEW: might break
+    imagemagick.package = pkgs.imagemagick_light; # REVIEW: might break
+
+    "util-linux".package = pkgs.util-linuxMinimal;
+  };
+
   luaLoader.enable = true; # faster Lua module loading
 
   performance = {
