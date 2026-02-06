@@ -10,9 +10,12 @@ in
   plugins.fzf-lua = {
     enable = true;
 
-    settings.actions.files."ctrl-o" = {
-      fn.__raw = builtins.readFile (mkLuaFile "fzf-copy-path");
-      exec_silent = true;
+    settings.actions.files = {
+      "__unkeyed-1" = true;
+      "ctrl-o" = {
+        fn.__raw = builtins.readFile (mkLuaFile "fzf-copy-path");
+        exec_silent = true;
+      };
     };
 
     keymaps = {
