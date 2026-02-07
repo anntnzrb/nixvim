@@ -5,23 +5,41 @@
 {
   imports = [ inputs.treefmt-nix.flakeModule ];
 
-  perSystem = _: {
-    treefmt = {
-      projectRootFile = "flake.nix";
-      programs = {
-        deadnix = {
-          enable = true;
-          no-lambda-arg = false;
-          no-lambda-pattern-names = false;
-          no-underscore = false;
+  perSystem =
+    { pkgs, ... }:
+    {
+      treefmt = {
+        projectRootFile = "flake.nix";
+
+        settings.formatter.luacheck = {
+          command = "${pkgs.luaPackages.luacheck}/bin/luacheck";
+          options = [
+            "--std"
+            "lua51+luajit"
+            "--globals"
+            "vim"
+            "--read-globals"
+            "client"
+            "bufnr"
+            "--"
+          ];
+          includes = [ "config/**/*.lua" ];
         };
-        nixfmt.enable = true;
-        statix = {
-          enable = true;
-          disabled-lints = [ ];
+
+        programs = {
+          deadnix = {
+            enable = true;
+            no-lambda-arg = false;
+            no-lambda-pattern-names = false;
+            no-underscore = false;
+          };
+          nixfmt.enable = true;
+          statix = {
+            enable = true;
+            disabled-lints = [ ];
+          };
+          stylua.enable = true;
         };
-        stylua.enable = true;
       };
     };
-  };
 }
