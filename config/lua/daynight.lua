@@ -12,8 +12,8 @@ local scheme = day and day_theme or night_theme
 
 local ok, ef = pcall(require, "ef-themes")
 if ok then
-  -- disable ef-themes compile cache
-  ef.setup({ options = { compile = false } })
+	-- disable ef-themes compile cache
+	ef.setup({ options = { compile = false } })
 end
 
 -- keep bg aligned with the selected theme
