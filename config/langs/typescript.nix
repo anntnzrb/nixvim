@@ -1,5 +1,5 @@
 _: {
-  plugins.lsp.servers = {
+  lsp.servers = {
     biome.enable = true;
     tsgo.enable = true;
   };

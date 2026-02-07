@@ -1,3 +1,3 @@
 _: {
-  plugins.lsp.servers.gleam.enable = true;
+  lsp.servers.gleam.enable = true;
 }

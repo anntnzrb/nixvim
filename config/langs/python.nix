@@ -1,5 +1,5 @@
 _: {
-  plugins.lsp.servers = {
+  lsp.servers = {
     basedpyright = {
       enable = true;
       package = null;
