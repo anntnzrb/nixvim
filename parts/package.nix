@@ -11,7 +11,6 @@
         module = inputs.import-tree (inputs.self + "/config");
         extraSpecialArgs = {
           inherit inputs;
-          mkLuaFile = name: (inputs.self + "/config/lua/${name}.lua");
         };
       };
       nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;

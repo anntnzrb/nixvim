@@ -1,7 +1,7 @@
 {
   inputs,
   lib,
-  mkLuaFile,
+  mkLuaTextFile,
   pkgs,
   ...
 }:
@@ -25,7 +25,7 @@ in
   };
 
   # Time-based theme selection runs after module-generated lua.
-  extraConfigLua = lib.mkAfter (builtins.readFile (mkLuaFile "daynight"));
+  extraConfigLua = lib.mkAfter (mkLuaTextFile "daynight");
 
   extraPlugins = [ efThemes ];
 }
