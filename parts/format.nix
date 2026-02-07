@@ -20,6 +20,7 @@
           enable = true;
           disabled-lints = [ ];
         };
+        stylua.enable = true;
       };
     };
   };
