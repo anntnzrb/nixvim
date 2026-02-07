@@ -9,6 +9,7 @@
     { pkgs, ... }:
     {
       treefmt = {
+        flakeCheck = false;
         projectRootFile = "flake.nix";
 
         settings.formatter.luacheck = {
