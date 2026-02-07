@@ -13,7 +13,7 @@ in
 
     settings.actions.files = lib.nixvim.listToUnkeyedAttrs [ true ] // {
       "ctrl-o" = {
-        fn = mkLuaFile "fzf-copy-path";
+        fn = mkLuaFile "pickers/fzf-lua/copy-path";
         exec_silent = true;
       };
     };
@@ -27,7 +27,7 @@ in
     // prefixed {
       c = {
         action = "colorschemes";
-        settings.colors = mkLuaFile "fzf-colorschemes";
+        settings.colors = mkLuaFile "pickers/fzf-lua/colorschemes";
         options.desc = "Colorschemes";
       };
       g = {
@@ -48,5 +48,4 @@ in
       };
     };
   };
-
 }
