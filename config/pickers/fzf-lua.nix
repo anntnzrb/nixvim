@@ -1,4 +1,5 @@
 {
+  lib,
   mkLuaFile,
   mkPrefixLeader,
   ...
@@ -10,10 +11,9 @@ in
   plugins.fzf-lua = {
     enable = true;
 
-    settings.actions.files = {
-      "__unkeyed-1" = true;
+    settings.actions.files = lib.nixvim.listToUnkeyedAttrs [ true ] // {
       "ctrl-o" = {
-        fn.__raw = builtins.readFile (mkLuaFile "fzf-copy-path");
+        fn = mkLuaFile "fzf-copy-path";
         exec_silent = true;
       };
     };
@@ -27,7 +27,7 @@ in
     // prefixed {
       c = {
         action = "colorschemes";
-        settings.colors.__raw = builtins.readFile (mkLuaFile "fzf-colorschemes");
+        settings.colors = mkLuaFile "fzf-colorschemes";
         options.desc = "Colorschemes";
       };
       g = {
