@@ -24,6 +24,7 @@ in
         git_config
         gitcommit
         gitignore
+        gleam
         go
         html
         javascript
@@ -39,6 +40,7 @@ in
         toml
         tsx
         typescript
+        typst
         vim
         vimdoc
         yaml
