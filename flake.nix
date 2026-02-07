@@ -17,6 +17,12 @@
       url = "github:numtide/treefmt-nix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
+      inputs.gitignore.follows = "";
+    };
     ef-themes = {
       url = "github:oonamo/ef-themes.nvim";
       flake = false;
