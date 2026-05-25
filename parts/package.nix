@@ -8,7 +8,10 @@
     let
       nixvimModule = {
         inherit system;
-        module = inputs.import-tree (inputs.self + "/config");
+        module = {
+          imports = [ (inputs.import-tree (inputs.self + "/config")) ];
+          nixpkgs.source = inputs.nixpkgs;
+        };
         extraSpecialArgs = {
           inherit inputs;
         };
