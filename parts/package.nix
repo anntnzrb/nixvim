@@ -10,6 +10,8 @@
         inherit system;
         module = {
           imports = [ (inputs.import-tree (inputs.self + "/config")) ];
+          enableMan = false;
+          enablePrintInit = false;
           nixpkgs.source = inputs.nixpkgs;
         };
         extraSpecialArgs = {
