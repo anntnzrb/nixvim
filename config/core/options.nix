@@ -12,6 +12,7 @@ let
     smartindent = true;
     tabstop = 2;
     undofile = true;
+    virtualedit = "block";
     wrap = true;
   };
 
@@ -25,20 +26,28 @@ let
   # search behavior
   search = {
     ignorecase = true;
+    inccommand = "split";
     infercase = true;
     smartcase = true;
   };
 
   # split and signcolumn behavior
   window = {
+    scrolloff = 8;
+    sidescrolloff = 8;
     signcolumn = "yes";
+    smoothscroll = true;
     splitbelow = true;
+    splitkeep = "screen";
     splitright = true;
   };
 
   # core ui behavior
   ui = {
     clipboard = "unnamedplus";
+    jumpoptions = "stack";
+    list = true;
+    listchars = "tab:» ,trail:·,nbsp:␣";
     mouse = "a";
     termguicolors = true;
   };
