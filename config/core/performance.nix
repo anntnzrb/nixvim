@@ -18,8 +18,10 @@
 
   performance = {
     # fewer RTP entries
-    combinePlugins.enable = true;
-
+    combinePlugins = {
+      enable = true;
+      standalonePlugins = [ pkgs.vimPlugins.snacks-nvim ];
+    };
     # byte-compile config/plugins
     byteCompileLua = {
       enable = true;
