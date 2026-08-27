@@ -21,7 +21,7 @@ in
             options.desc = "Switch buffer";
           };
           k = {
-            action = "<cmd>bdelete<CR>";
+            action = "<cmd>lua Snacks.bufdelete()<CR>";
             options.desc = "Kill buffer";
           };
           n = {
