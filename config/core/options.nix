@@ -19,8 +19,10 @@ let
   # file safety behavior
   fileSafety = {
     backup = false;
-    writebackup = true;
+    # Bound ShaDa history size to prevent cold startup latency from huge registers/marks
+    shada = "'10,<50,s10,:20";
     swapfile = false;
+    writebackup = true;
   };
 
   # search behavior
