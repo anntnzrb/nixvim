@@ -5,16 +5,28 @@ on:
   pull_request:
   push:
     branches: ['main']
-    paths: [ '**.nix', '**.lock' ]
+    paths-ignore:
+      - '**/*.md'
+      - COPYING
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: DeterminateSystems/nix-installer-action@v23
 
