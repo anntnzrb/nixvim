@@ -1,6 +1,21 @@
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: nix
+    directory: /
     schedule:
-      interval: "weekly"
+      interval: weekly
+    groups:
+      flake-inputs:
+        patterns: ["*"]
+    commit-message:
+      prefix: chore(flake)
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
