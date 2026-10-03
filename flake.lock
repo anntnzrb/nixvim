@@ -19,6 +19,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
+          "nixvim",
           "nixpkgs"
         ]
       },
@@ -32,24 +33,7 @@
       },
       "original": {
         "owner": "hercules-ci",
-        "ref": "main",
         "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "import-tree": {
-      "locked": {
-        "lastModified": 1788467110,
-        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
-        "owner": "vic",
-        "repo": "import-tree",
-        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "ref": "main",
-        "repo": "import-tree",
         "type": "github"
       }
     },
@@ -71,9 +55,7 @@
     },
     "nixvim": {
       "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
+        "flake-parts": "flake-parts",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -97,13 +79,9 @@
     "root": {
       "inputs": {
         "ef-themes": "ef-themes",
-        "flake-parts": "flake-parts",
-        "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "treefmt-nix": "treefmt-nix",
-        "vim-spell-es-spl": "vim-spell-es-spl",
-        "vim-spell-es-sug": "vim-spell-es-sug"
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "systems": {
@@ -142,30 +120,6 @@
         "ref": "main",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "vim-spell-es-spl": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-uKYxOS5EANO/DMjmh4CnjndIMgUwlmADukoMCu/PjT4=",
-        "type": "file",
-        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl"
-      }
-    },
-    "vim-spell-es-sug": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-gP0MrM3L3CDKAnBg/08y8BV+qnfQBgDh5aircQACymk=",
-        "type": "file",
-        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug"
       }
     }
   },
