@@ -3,21 +3,13 @@
   ...
 }:
 {
-  # Preemptively map Nixvim runtime dependencies to minimal/lightweight variants.
-  # When a plugin requests any of these tools, Nixvim uses these packages instead
-  # of pulling full-fat default derivations (saving hundreds of MBs in transitive closure).
-  dependencies = {
-    curl.package = pkgs.curlMinimal;
-    fish.package = pkgs.fishMinimal;
-    git.package = pkgs.gitMinimal;
-
-    nodejs.package = pkgs.nodejs-slim; # REVIEW: might break
-    imagemagick.package = pkgs.imagemagick_light; # REVIEW: might break
-
-    "util-linux".package = pkgs.util-linuxMinimal;
-  };
-
   luaLoader.enable = true; # faster Lua module loading
+
+  globals = {
+    loaded_remote_plugins = 1;
+    loaded_spellfile_plugin = 1;
+    loaded_tutor_mode_plugin = 1;
+  };
 
   performance = {
     # Combine plugins into a single directory pack to minimize runtime rtp lookups.
