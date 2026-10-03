@@ -42,6 +42,7 @@ let
     splitbelow = true;
     splitkeep = "screen";
     splitright = true;
+    winborder = "rounded";
   };
 
   # core ui behavior
@@ -62,9 +63,11 @@ let
 
   # insert-mode completion behavior
   completion = {
-    complete = ".,w,b,u,U,k,kspell,s,i,d,],f";
+    autocomplete = true;
+    complete = ".,w,b,u,kspell,f";
     completeopt = "menuone,noselect,popup";
     pumblend = 0;
+    pumborder = "rounded";
     pumheight = 12;
   };
 

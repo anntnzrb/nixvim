@@ -14,7 +14,14 @@ There is no package manager step, everything is handled behind the scenes by
 
 **Treesitter**:
 
-- Enabled for most, if not all filetypes; no compilation required
+- Highlighting, indent and folds for ~40 common filetypes; grammars are
+  prebuilt by Nix, no compilation required
+
+**Native first**:
+
+- No LSP, no completion plugin: Neovim's built-in `autocomplete`, `an`/`in`
+  tree-sitter selection and `winborder` do the job
+- Small closure (~260 MiB); formatting and lint gates run in CI, not locally
 
 ## Goals
 
