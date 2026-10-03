@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches: ['main']
-    paths: [ '**.nix', '**.lock']
+    paths: [ '**.nix', '**.lock' ]
 
 jobs:
   ci:
@@ -18,8 +18,5 @@ jobs:
 
       - uses: DeterminateSystems/nix-installer-action@v23
 
-      - name: Install omnix
-        run: nix --accept-flake-config profile install "github:juspay/omnix"
-
-      - name: Run CI (omnix)
-        run: om ci run .
+      - name: Flake check
+        run: nix flake check --print-build-logs

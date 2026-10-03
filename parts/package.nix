@@ -26,8 +26,6 @@
       };
       packages = {
         default = nvim;
-        nixvim = nvim;
-        neovim = nvim;
       };
     };
 }
