@@ -4,7 +4,7 @@
 
 Full gate: `nix fmt && nix flake check`
 
-- Run gate after changes
+- Run gate after changes (CI runs `nix flake check` on every PR; there are no local git hooks or devshell)
 - Nix needs files to be git-tracked to see them
 - Build derivation and inspect closure
 
