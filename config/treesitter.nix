@@ -25,6 +25,7 @@
       go
       gomod
       gosum
+      haskell
       html
       ini
       java
