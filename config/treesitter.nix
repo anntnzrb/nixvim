@@ -1,5 +1,5 @@
 {
-  pkgs,
+  config,
   ...
 }:
 {
@@ -9,7 +9,7 @@
     nixGrammars = true;
     nixvimInjections = true;
 
-    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+    grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
       bash
       c
       cpp
